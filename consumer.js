@@ -13,7 +13,10 @@ async function connect() {
     const result = await channel.assertQueue("jobs");
     channel.consume("jobs", (message) => {
       const input = JSON.parse(message.content.toString());
-      console.log(input);
+      if (input == 7) {
+        channel.ack(message);
+      }
+      console.log(`Received job with input ${input.number}`);
     });
   } catch (ex) {
     console.error(ex);
