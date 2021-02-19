@@ -1,0 +1,9 @@
+version: '2.2'
+
+services:
+    rabbitmq-server:
+        container_name: myrabbitmq
+        image: rabbitmq
+        ports:
+            - "5672:5672"
+        
